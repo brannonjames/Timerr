@@ -1,5 +1,5 @@
 //
-//  ScreenProto.swift
+//  ControllerProto.swift
 //  timerr
 //
 //  Created by Jimmy on 5/11/19.
@@ -8,9 +8,6 @@
 
 import UIKit
 
-protocol ScreenProto {
-    // Properties
-    var styles: AppStyle { get }
-    
-    // Methods
+protocol ControllerProto {
+    var viewController: UIViewController { get set }
 }

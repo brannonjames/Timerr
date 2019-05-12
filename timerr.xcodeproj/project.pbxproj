@@ -12,12 +12,16 @@
 		BF19798222863D1E00C16159 /* timerr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF19798022863D1E00C16159 /* timerr.xcdatamodeld */; };
 		BF19798422863D1F00C16159 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF19798322863D1F00C16159 /* Assets.xcassets */; };
 		BF19798722863D1F00C16159 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF19798522863D1F00C16159 /* LaunchScreen.storyboard */; };
-		BF1979982286408800C16159 /* AppEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1979972286408800C16159 /* AppEntryViewController.swift */; };
+		BF1979982286408800C16159 /* AppEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1979972286408800C16159 /* AppEntryController.swift */; };
 		BF19799A2286417000C16159 /* AppEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1979992286417000C16159 /* AppEntryView.swift */; };
 		BF19799E228645A800C16159 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF19799D228645A800C16159 /* Font.swift */; };
 		BF1979A02286546300C16159 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF19799F2286546300C16159 /* Color.swift */; };
 		BF1979A322875D5D00C16159 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1979A222875D5D00C16159 /* AppStyle.swift */; };
 		BF1979A722876C4200C16159 /* ScreenProto.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1979A622876C4200C16159 /* ScreenProto.swift */; };
+		BF1979AB22877B8E00C16159 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1979AA22877B8E00C16159 /* AppController.swift */; };
+		BF1979AD2287BEEB00C16159 /* ScreenControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1979AC2287BEEB00C16159 /* ScreenControllerProtocol.swift */; };
+		BF1979AF2287C64B00C16159 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1979AE2287C64B00C16159 /* AppView.swift */; };
+		BF1979B12287C95500C16159 /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1979B02287C95500C16159 /* TimePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +32,16 @@
 		BF19798322863D1F00C16159 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF19798622863D1F00C16159 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF19798822863D1F00C16159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF1979972286408800C16159 /* AppEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEntryViewController.swift; sourceTree = "<group>"; };
+		BF1979972286408800C16159 /* AppEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEntryController.swift; sourceTree = "<group>"; };
 		BF1979992286417000C16159 /* AppEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEntryView.swift; sourceTree = "<group>"; };
 		BF19799D228645A800C16159 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		BF19799F2286546300C16159 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		BF1979A222875D5D00C16159 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
 		BF1979A622876C4200C16159 /* ScreenProto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenProto.swift; sourceTree = "<group>"; };
+		BF1979AA22877B8E00C16159 /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
+		BF1979AC2287BEEB00C16159 /* ScreenControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenControllerProtocol.swift; sourceTree = "<group>"; };
+		BF1979AE2287C64B00C16159 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		BF1979B02287C95500C16159 /* TimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +92,7 @@
 				BF19799522863E8D00C16159 /* Config */,
 				BF19799422863E7A00C16159 /* Models */,
 				BF19799322863E6C00C16159 /* Services */,
-				BF19799222863E2000C16159 /* ViewControllers */,
+				BF19799222863E2000C16159 /* Controllers */,
 				BF19798F22863DE100C16159 /* Views */,
 			);
 			path = src;
@@ -102,6 +110,7 @@
 		BF19799022863E0000C16159 /* Partials */ = {
 			isa = PBXGroup;
 			children = (
+				BF1979B02287C95500C16159 /* TimePicker.swift */,
 			);
 			path = Partials;
 			sourceTree = "<group>";
@@ -111,16 +120,19 @@
 			children = (
 				BF1979992286417000C16159 /* AppEntryView.swift */,
 				BF1979A622876C4200C16159 /* ScreenProto.swift */,
+				BF1979AE2287C64B00C16159 /* AppView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		BF19799222863E2000C16159 /* ViewControllers */ = {
+		BF19799222863E2000C16159 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BF1979972286408800C16159 /* AppEntryViewController.swift */,
+				BF1979972286408800C16159 /* AppEntryController.swift */,
+				BF1979AA22877B8E00C16159 /* AppController.swift */,
+				BF1979AC2287BEEB00C16159 /* ScreenControllerProtocol.swift */,
 			);
-			path = ViewControllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		BF19799322863E6C00C16159 /* Services */ = {
@@ -233,12 +245,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF19797C22863D1E00C16159 /* ViewController.swift in Sources */,
-				BF1979982286408800C16159 /* AppEntryViewController.swift in Sources */,
+				BF1979982286408800C16159 /* AppEntryController.swift in Sources */,
 				BF19798222863D1E00C16159 /* timerr.xcdatamodeld in Sources */,
 				BF1979A722876C4200C16159 /* ScreenProto.swift in Sources */,
 				BF1979A322875D5D00C16159 /* AppStyle.swift in Sources */,
 				BF1979A02286546300C16159 /* Color.swift in Sources */,
+				BF1979AB22877B8E00C16159 /* AppController.swift in Sources */,
+				BF1979AD2287BEEB00C16159 /* ScreenControllerProtocol.swift in Sources */,
+				BF1979AF2287C64B00C16159 /* AppView.swift in Sources */,
 				BF19797A22863D1E00C16159 /* AppDelegate.swift in Sources */,
+				BF1979B12287C95500C16159 /* TimePicker.swift in Sources */,
 				BF19799A2286417000C16159 /* AppEntryView.swift in Sources */,
 				BF19799E228645A800C16159 /* Font.swift in Sources */,
 			);

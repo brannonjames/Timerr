@@ -8,9 +8,9 @@
 
 import UIKit
 
-class AppEntryView: UIViewController, ScreenProto {
+class AppEntryView: UIViewController {
     
-    internal var controller: AppEntryViewController?
+    internal var controller: AppEntryController?
     internal let styles = AppStyle.shared
     private let activityIndicator = UIActivityIndicatorView()
     
@@ -20,7 +20,7 @@ class AppEntryView: UIViewController, ScreenProto {
         layoutViews()
     }
     
-    public func setController(_ controller: AppEntryViewController) {
+    public func setController(_ controller: AppEntryController) {
         self.controller = controller
     }
     
@@ -41,9 +41,6 @@ class AppEntryView: UIViewController, ScreenProto {
     
     func layoutViews() {
         let margins: UILayoutGuide = self.view.safeAreaLayoutGuide
-        
-        // MARK: Basic Styles
-        self.view.backgroundColor = styles.colors.primary
         
         // UIViews
         let topHalf = addSubview()

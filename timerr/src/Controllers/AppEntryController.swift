@@ -8,15 +8,19 @@
 
 import UIKit
 
-class AppEntryViewController: UIViewController {
-    
+class AppEntryController: UIViewController {
+
     private let appEntryView = AppEntryView()
+    
+    private var isAuthenticated = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
         appEntryView.setController(self)
         self.view.addSubview(appEntryView.view)
         appEntryView.startLoader()
+        
+        handleNavigation()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -25,14 +29,20 @@ class AppEntryViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+     // MARK: - Navigation
+
+
+    func handleNavigation() {
+        if isAuthenticated {
+            let nextController = AppController()
+            self.navigationController?.pushViewController(nextController, animated: false)
+        }
     }
-    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         //Get the new view controller using segue.destination.
+         //Pass the selected object to the new view controller.
+    }
 
 }
