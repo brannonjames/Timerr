@@ -25,7 +25,8 @@ class AppView: UINavigationController, ScreenProto {
         self.controller = controller
     }
     
-    func addSubview(_ view: UIView = UIView()) -> UIView {
+    func addSubview(_ view: UIView?) -> UIView {
+        guard let view = view else { return UIView() }
         view.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(view)
         return view
@@ -35,20 +36,18 @@ class AppView: UINavigationController, ScreenProto {
         let margins: UILayoutGuide = self.view.safeAreaLayoutGuide
         
         // MARK: UIViews
-        let timePicker = TimePicker()
-        let timePickerView = addSubview(timePicker)
-        if let cb = self.controller?.onDateChange {
-            timePicker.setOnChangeCallback(cb)
-        }
+        let stopWatch = self.addSubview(self.controller?.stopWatch)
+        stopWatch.backgroundColor = .red
+        
         
         // MARK: Styles
         self.view.backgroundColor = styles.colors.background
         
         // MARK: Constraints
-        timePickerView.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
-        timePickerView.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
-        timePickerView.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
-        timePickerView.bottomAnchor.constraint(equalTo: margins.centerYAnchor).isActive = true
+        stopWatch.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+        stopWatch.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+        stopWatch.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
+        stopWatch.bottomAnchor.constraint(equalTo: margins.centerYAnchor).isActive = true
     }
 
 }
