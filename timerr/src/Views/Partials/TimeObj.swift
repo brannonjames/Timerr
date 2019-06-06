@@ -14,12 +14,18 @@ class TimeObj {
     public var minutes: Int = 0
     public var seconds: Int = 0
     public var decimal: Int = 0
+    public var time: Double = 0.0
     
     public func setTime(timeInSeconds: Double) -> TimeObj {
+        self.time = timeInSeconds
         self.minutes = Int(timeInSeconds / 60)
         self.seconds = Int(timeInSeconds.truncatingRemainder(dividingBy: 60))
         self.decimal = Int(timeInSeconds.truncatingRemainder(dividingBy: 1.0) * 100)
         return self
+    }
+    
+    public func getTime() -> Double {
+        return time
     }
     
     func toString() -> String {
