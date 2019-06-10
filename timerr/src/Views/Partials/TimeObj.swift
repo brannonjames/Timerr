@@ -9,7 +9,7 @@
 import Foundation
 
 class TimeObj {
-    private let template = "%02d:%02d:%02d"
+    private let template = "%02d:%02d.%02d"
     
     public var minutes: Int = 0
     public var seconds: Int = 0

@@ -11,7 +11,7 @@ import UIKit
 class StopWatchDisplay: UILabel {
     
     private let styles = AppStyle()
-    private let clearedTime = "00:00:00"
+    private let clearedTime = "00:00.00"
     
     override init(frame: CGRect) {
         super.init(frame: frame)

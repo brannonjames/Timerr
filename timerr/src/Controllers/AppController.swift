@@ -63,7 +63,7 @@ class AppController: UIViewController, ScreenControllerProtocol {
     
     func startStopWatch() {
         self.startTime = Date().timeIntervalSince1970
-        self.timer = Timer(timeInterval: 0.05, target: self, selector: #selector(onTimerStart), userInfo: nil, repeats: true)
+        self.timer = Timer(timeInterval: 0.02, target: self, selector: #selector(onTimerStart), userInfo: nil, repeats: true)
         RunLoop.current.add(self.timer!, forMode: .common)
     }
     
