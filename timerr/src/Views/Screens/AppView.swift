@@ -45,15 +45,23 @@ class AppView: UINavigationController, ScreenProto {
         let bottomHalf = addSubview()
         setupBottomHalfConstraints(bottomHalf, parent: margins)
         
+        let lapTable = self.addSubview(self.controller?.lapTable)
+        setupLapTableConstraints(
+            lapTable,
+            parent: margins,
+            topSibling: stopWatch.safeAreaLayoutGuide,
+            bottomSibling: bottomHalf.safeAreaLayoutGuide
+        )
+        
         let leftButtonContainer = addSubview()
         setupLeftButtonContainerConstraints(leftButtonContainer, parent: bottomHalf.safeAreaLayoutGuide)
-        
+
         let rightButtonContainer = addSubview()
         setupRightButtonContainerConstraints(rightButtonContainer, parent: bottomHalf.safeAreaLayoutGuide)
-        
+
         let leftButtonView = addSubview(controller!.leftButton)
         setupLeftButtonConstraints(leftButtonView, parent: leftButtonContainer.safeAreaLayoutGuide)
-        
+
         let rightButtonView = addSubview(controller!.rightButton)
         setupRightButtonConstraints(rightButtonView, parent: rightButtonContainer.safeAreaLayoutGuide)
         
@@ -68,15 +76,22 @@ class AppView: UINavigationController, ScreenProto {
     private func setupStopWatchConstraints(_ stopWatch: UIView, parent: UILayoutGuide) {
         stopWatch.leadingAnchor.constraint(equalTo: parent.leadingAnchor).isActive = true
         stopWatch.trailingAnchor.constraint(equalTo: parent.trailingAnchor).isActive = true
-        stopWatch.topAnchor.constraint(equalTo: parent.topAnchor).isActive = true
-        stopWatch.bottomAnchor.constraint(equalTo: parent.centerYAnchor).isActive = true
+        stopWatch.topAnchor.constraint(equalTo: parent.topAnchor, constant: 20).isActive = true
+    }
+    
+    private func setupLapTableConstraints(_ table: UIView, parent: UILayoutGuide, topSibling: UILayoutGuide, bottomSibling: UILayoutGuide) {
+        let margins: UILayoutGuide = self.view.safeAreaLayoutGuide
+        table.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+        table.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+        table.topAnchor.constraint(equalTo: topSibling.bottomAnchor).isActive = true
+        table.bottomAnchor.constraint(equalTo: bottomSibling.topAnchor, constant: 0).isActive = true
     }
     
     private func setupBottomHalfConstraints(_ bottomContainer: UIView, parent: UILayoutGuide) {
+        bottomContainer.heightAnchor.constraint(equalToConstant: 80).isActive = true
         bottomContainer.leadingAnchor.constraint(equalTo: parent.leadingAnchor).isActive = true
         bottomContainer.trailingAnchor.constraint(equalTo: parent.trailingAnchor).isActive = true
-        bottomContainer.topAnchor.constraint(equalTo: parent.centerYAnchor).isActive = true
-        bottomContainer.bottomAnchor.constraint(equalTo: parent.bottomAnchor).isActive = true
+        bottomContainer.bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: -40).isActive = true
     }
     
     private func setupLeftButtonContainerConstraints(_ buttonContainer: UIView, parent: UILayoutGuide) {

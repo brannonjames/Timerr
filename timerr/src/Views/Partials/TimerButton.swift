@@ -17,8 +17,8 @@ enum TimerButtonType {
 
 class TimerButton: UIButton {
     
-    public let width: CGFloat = 100
-    public let height: CGFloat = 100
+    public let width: CGFloat = 80
+    public let height: CGFloat = 80
     public var timerButtonType: TimerButtonType?
     
     private let styles = AppStyle.shared

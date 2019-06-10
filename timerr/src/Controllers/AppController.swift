@@ -17,6 +17,7 @@ class AppController: UIViewController, ScreenControllerProtocol {
     private let timeObj = TimeObj()
     private var isRunning = false
     private var offset = 0.0
+    public let lapTable = LapTable()
     public let leftButton = TimerButton(type: .reset)
     public let rightButton = TimerButton(type: .start)
     
@@ -30,7 +31,7 @@ class AppController: UIViewController, ScreenControllerProtocol {
     }
     
     func setupNavbar() {
-        self.navigationController?.isNavigationBarHidden = true
+        
     }
     
     private func setupEventHandlers() {
@@ -39,7 +40,7 @@ class AppController: UIViewController, ScreenControllerProtocol {
     }
     
     @objc private func handleLeftButtonPressed() {
-        clearStopWatch()
+        
     }
     
     @objc private func handleRightButtonPressed() {

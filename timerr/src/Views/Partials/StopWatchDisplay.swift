@@ -17,10 +17,9 @@ class StopWatchDisplay: UILabel {
         super.init(frame: frame)
         
         self.font = styles.fonts.h1Font
-        self.textColor = .white
+        self.textColor = .black
         self.textAlignment = .center
         self.text = clearedTime
-        self.backgroundColor = .blue
     }
     
     func setTime(time: String) {
