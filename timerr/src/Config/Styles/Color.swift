@@ -27,6 +27,6 @@ struct Color {
     let dangerText = UIColor(red:1.00, green:0.62, blue:0.57, alpha:1.0)
     
     // #FFF
-    let background = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0)
+    let background = UIColor.white
 }
 

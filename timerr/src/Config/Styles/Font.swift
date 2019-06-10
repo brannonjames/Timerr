@@ -10,7 +10,7 @@ import UIKit
 
 class Font {
     
-    public let h1Font = UIFont(name: "Helvetica Neue", size: 62)
+    public let h1Font = UIFont(name: "Helvetica Neue", size: 70)
     public let h2Font = UIFont(name: "Helvetica Neue", size: 42)
     public let h3Font = UIFont(name: "Helvetica Neue", size: 30)
     public let normalFont = UIFont(name: "Helvetica Neue", size: 18)

@@ -12,7 +12,7 @@ class LapTable: UITableView, UITableViewDelegate, UITableViewDataSource  {
     
 //    private let tableView = UITableView()
     private let cellReuseId = "lapCell"
-    private let mockData = ["1", "2", "3"]
+    private var laps: [String] = []
     private let styles = AppStyle.shared
     
     override init(frame: CGRect, style: UITableView.Style) {
@@ -27,15 +27,20 @@ class LapTable: UITableView, UITableViewDelegate, UITableViewDataSource  {
         super.init(coder: aDecoder)
     }
     
+    func addLap(_ lap: String) {
+        laps.insert(lap, at: 0)
+        self.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mockData.count
+        return laps.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = self.dequeueReusableCell(withIdentifier: cellReuseId) as UITableViewCell? else {
             return UITableViewCell()
         }
-        cell.textLabel?.text = mockData[indexPath.row]
+        cell.textLabel?.text = laps[indexPath.row]
         return cell
     }
     

@@ -31,7 +31,7 @@ class AppController: UIViewController, ScreenControllerProtocol {
     }
     
     func setupNavbar() {
-        
+     self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     private func setupEventHandlers() {
@@ -40,33 +40,48 @@ class AppController: UIViewController, ScreenControllerProtocol {
     }
     
     @objc private func handleLeftButtonPressed() {
-        
+        if isRunning {
+            handleLap()
+        } else {
+            clearStopWatch()
+        }
     }
     
     @objc private func handleRightButtonPressed() {
         if isRunning {
             stopStopWatch()
+            leftButton.setButtonStyle(.reset)
             rightButton.setButtonStyle(.start)
             isRunning = false
         } else {
             startStopWatch()
+            leftButton.setButtonStyle(.lap)
             rightButton.setButtonStyle(.stop)
             isRunning = true
         }
     }
     
     func startStopWatch() {
-        startTime = Date().timeIntervalSince1970
-        timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { timer in
-            let timeInSeconds: Double = Date().timeIntervalSince1970 - self.startTime!
-            let updatedTime = self.timeObj.setTime(timeInSeconds: timeInSeconds + self.offset)
-            self.stopWatch.setTime(time: updatedTime.toString())
-        }
+        self.startTime = Date().timeIntervalSince1970
+        self.timer = Timer(timeInterval: 0.05, target: self, selector: #selector(onTimerStart), userInfo: nil, repeats: true)
+        RunLoop.current.add(self.timer!, forMode: .common)
+    }
+    
+
+    
+    @objc func onTimerStart() {
+        let timeInSeconds: Double = Date().timeIntervalSince1970 - self.startTime!
+        let updatedTime = self.timeObj.setTime(timeInSeconds: timeInSeconds + self.offset)
+        self.stopWatch.setTime(time: updatedTime.toString())
     }
     
     func stopStopWatch() {
         offset = timeObj.getTime()
         timer?.invalidate()
+    }
+    
+    func handleLap() {
+        lapTable.addLap(timeObj.toString())
     }
     
     func clearStopWatch() {
