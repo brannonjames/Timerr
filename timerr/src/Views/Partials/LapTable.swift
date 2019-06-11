@@ -32,6 +32,11 @@ class LapTable: UITableView, UITableViewDelegate, UITableViewDataSource  {
         self.reloadData()
     }
     
+    func clear() {
+        laps = []
+        self.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return laps.count
     }

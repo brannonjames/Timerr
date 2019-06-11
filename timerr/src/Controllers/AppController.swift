@@ -89,6 +89,7 @@ class AppController: UIViewController, ScreenControllerProtocol {
         let _ = timeObj.setTime(timeInSeconds: 0.0)
         stopWatch.clearTime()
         offset = 0.0
+        lapTable.clear()
     }
     
     func onDateChange(date: Date) {
