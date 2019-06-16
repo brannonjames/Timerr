@@ -26,6 +26,8 @@
 		BF42BE40228F910C003B8AFC /* TimeObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF42BE3F228F910C003B8AFC /* TimeObj.swift */; };
 		BFD9C7E4229232D000D6DDD4 /* TimerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD9C7E3229232D000D6DDD4 /* TimerButton.swift */; };
 		BFD9C7E622AB549200D6DDD4 /* LapTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD9C7E522AB549200D6DDD4 /* LapTable.swift */; };
+		BFD9C7E822B5D54F00D6DDD4 /* QRController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD9C7E722B5D54F00D6DDD4 /* QRController.swift */; };
+		BFD9C7EA22B5D57200D6DDD4 /* QRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD9C7E922B5D57200D6DDD4 /* QRView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		BF42BE3F228F910C003B8AFC /* TimeObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimeObj.swift; path = timerr/src/Views/Partials/TimeObj.swift; sourceTree = SOURCE_ROOT; };
 		BFD9C7E3229232D000D6DDD4 /* TimerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerButton.swift; sourceTree = "<group>"; };
 		BFD9C7E522AB549200D6DDD4 /* LapTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapTable.swift; sourceTree = "<group>"; };
+		BFD9C7E722B5D54F00D6DDD4 /* QRController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRController.swift; sourceTree = "<group>"; };
+		BFD9C7E922B5D57200D6DDD4 /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,7 @@
 				BF1979992286417000C16159 /* AppEntryView.swift */,
 				BF1979A622876C4200C16159 /* ScreenProto.swift */,
 				BF1979AE2287C64B00C16159 /* AppView.swift */,
+				BFD9C7E922B5D57200D6DDD4 /* QRView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 				BF1979972286408800C16159 /* AppEntryController.swift */,
 				BF1979AC2287BEEB00C16159 /* ScreenControllerProtocol.swift */,
 				BF42BE3B228F8850003B8AFC /* AppController.swift */,
+				BFD9C7E722B5D54F00D6DDD4 /* QRController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -262,8 +268,10 @@
 				BFD9C7E4229232D000D6DDD4 /* TimerButton.swift in Sources */,
 				BF42BE3C228F8850003B8AFC /* AppController.swift in Sources */,
 				BF19798222863D1E00C16159 /* timerr.xcdatamodeld in Sources */,
+				BFD9C7E822B5D54F00D6DDD4 /* QRController.swift in Sources */,
 				BF1979A722876C4200C16159 /* ScreenProto.swift in Sources */,
 				BF1979A322875D5D00C16159 /* AppStyle.swift in Sources */,
+				BFD9C7EA22B5D57200D6DDD4 /* QRView.swift in Sources */,
 				BF1979A02286546300C16159 /* Color.swift in Sources */,
 				BF1979AD2287BEEB00C16159 /* ScreenControllerProtocol.swift in Sources */,
 				BFD9C7E622AB549200D6DDD4 /* LapTable.swift in Sources */,
