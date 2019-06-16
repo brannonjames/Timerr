@@ -17,8 +17,10 @@ class AppView: UINavigationController, ScreenProto {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
+        setupSubViews()
         setupEventHandlers()
+        
+        self.view.backgroundColor = styles.colors.background
     }
     
     private func setupEventHandlers() {
@@ -35,89 +37,56 @@ class AppView: UINavigationController, ScreenProto {
         return view!
     }
     
-    func setupViews() {
+    // MARK: UIViews
+    func setupSubViews() {
         let margins: UILayoutGuide = self.view.safeAreaLayoutGuide
         
-        // MARK: UIViews
+        // MARK: StopWatch
         let stopWatch = self.addSubview(self.controller?.stopWatch)
-        setupStopWatchConstraints(stopWatch, parent: margins)
         stopWatch.backgroundColor = styles.colors.background
+        stopWatch.snapLeft(margins.leftAnchor, offset: 0)
+        stopWatch.snapRight(margins.rightAnchor, offset: 0)
+        stopWatch.snapTop(margins.topAnchor, offset: 0)
+        stopWatch.setHeight(100)
         
+        // MARK: ButtonContainer
         let bottomHalf = addSubview()
-        setupBottomHalfConstraints(bottomHalf, parent: margins)
+        bottomHalf.snapLeft(margins.leftAnchor, offset: 0)
+        bottomHalf.snapRight(margins.rightAnchor, offset: 0)
+        bottomHalf.snapBottom(margins.bottomAnchor, offset: -20)
+        bottomHalf.setHeight(80)
         
+        // MARK: LapTable
         let lapTable = self.addSubview(self.controller?.lapTable)
-        setupLapTableConstraints(
-            lapTable,
-            parent: margins,
-            topSibling: stopWatch.safeAreaLayoutGuide,
-            bottomSibling: bottomHalf.safeAreaLayoutGuide
-        )
+        lapTable.snapLeft(margins.leftAnchor, offset: 0)
+        lapTable.snapRight(margins.rightAnchor, offset: 0)
+        lapTable.snapTop(stopWatch.bottomAnchor, offset: 0)
+        lapTable.snapBottom(bottomHalf.topAnchor, offset: -20)
         
+        // MARK: LeftButtonContainer
         let leftButtonContainer = addSubview()
-        setupLeftButtonContainerConstraints(leftButtonContainer, parent: bottomHalf.safeAreaLayoutGuide)
-
-        let rightButtonContainer = addSubview()
-        setupRightButtonContainerConstraints(rightButtonContainer, parent: bottomHalf.safeAreaLayoutGuide)
-
+        leftButtonContainer.snapLeft(bottomHalf.leftAnchor, offset: 0)
+        leftButtonContainer.snapRight(bottomHalf.centerXAnchor, offset: 0)
+        leftButtonContainer.snapTop(bottomHalf.topAnchor, offset: 0)
+        leftButtonContainer.snapBottom(bottomHalf.bottomAnchor, offset: 0)
+        
+        // MARK: LeftButton
         let leftButtonView = addSubview(controller!.leftButton)
-        setupLeftButtonConstraints(leftButtonView, parent: leftButtonContainer.safeAreaLayoutGuide)
-
-        let rightButtonView = addSubview(controller!.rightButton)
-        setupRightButtonConstraints(rightButtonView, parent: rightButtonContainer.safeAreaLayoutGuide)
+        leftButtonView.snapCenterX(leftButtonContainer.centerXAnchor, offset: 0)
+        leftButtonView.snapCenterY(leftButtonContainer.centerYAnchor, offset: 0)
         
+        // MARK: RightButtonContainer
+        let rightButtonContainer = addSubview()
+        rightButtonContainer.snapLeft(bottomHalf.centerXAnchor, offset: 0)
+        rightButtonContainer.snapRight(bottomHalf.rightAnchor, offset: 0)
+        rightButtonContainer.snapTop(bottomHalf.topAnchor, offset: 0)
+        rightButtonContainer.snapBottom(bottomHalf.bottomAnchor, offset: 0)
         
+        // MARK: RightButton
+        let rightButtonView = addSubview(controller!.rightButton)        
+        rightButtonView.snapCenterX(rightButtonContainer.centerXAnchor, offset: 0)
+        rightButtonView.snapCenterY(rightButtonContainer.centerYAnchor, offset: 0)
         
-        // MARK: Styles
-        self.view.backgroundColor = styles.colors.background
-        
-
-    }
-    
-    private func setupStopWatchConstraints(_ stopWatch: UIView, parent: UILayoutGuide) {
-        stopWatch.leadingAnchor.constraint(equalTo: parent.leadingAnchor).isActive = true
-        stopWatch.trailingAnchor.constraint(equalTo: parent.trailingAnchor).isActive = true
-        stopWatch.topAnchor.constraint(equalTo: parent.topAnchor).isActive = true
-        stopWatch.heightAnchor.constraint(equalToConstant: 100).isActive = true
-    }
-    
-    private func setupLapTableConstraints(_ table: UIView, parent: UILayoutGuide, topSibling: UILayoutGuide, bottomSibling: UILayoutGuide) {
-        let margins: UILayoutGuide = self.view.safeAreaLayoutGuide
-        table.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
-        table.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
-        table.topAnchor.constraint(equalTo: topSibling.bottomAnchor).isActive = true
-        table.bottomAnchor.constraint(equalTo: bottomSibling.topAnchor, constant: -20).isActive = true
-    }
-    
-    private func setupBottomHalfConstraints(_ bottomContainer: UIView, parent: UILayoutGuide) {
-        bottomContainer.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        bottomContainer.leadingAnchor.constraint(equalTo: parent.leadingAnchor).isActive = true
-        bottomContainer.trailingAnchor.constraint(equalTo: parent.trailingAnchor).isActive = true
-        bottomContainer.bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: -20).isActive = true
-    }
-    
-    private func setupLeftButtonContainerConstraints(_ buttonContainer: UIView, parent: UILayoutGuide) {
-        buttonContainer.leadingAnchor.constraint(equalTo: parent.leadingAnchor).isActive = true
-        buttonContainer.trailingAnchor.constraint(equalTo: parent.centerXAnchor).isActive = true
-        buttonContainer.topAnchor.constraint(equalTo: parent.topAnchor).isActive = true
-        buttonContainer.bottomAnchor.constraint(equalTo: parent.bottomAnchor).isActive = true
-    }
-    
-    private func setupRightButtonContainerConstraints(_ buttonContainer: UIView, parent: UILayoutGuide) {
-        buttonContainer.leadingAnchor.constraint(equalTo: parent.centerXAnchor).isActive = true
-        buttonContainer.trailingAnchor.constraint(equalTo: parent.trailingAnchor).isActive = true
-        buttonContainer.topAnchor.constraint(equalTo: parent.topAnchor).isActive = true
-        buttonContainer.bottomAnchor.constraint(equalTo: parent.bottomAnchor).isActive = true
-    }
-    
-    private func setupLeftButtonConstraints(_ button: UIView, parent: UILayoutGuide) {
-        button.centerXAnchor.constraint(equalTo: parent.centerXAnchor).isActive = true
-        button.centerYAnchor.constraint(equalTo: parent.centerYAnchor).isActive = true
-    }
-    
-    private func setupRightButtonConstraints(_ button: UIView, parent: UILayoutGuide) {
-        button.centerXAnchor.constraint(equalTo: parent.centerXAnchor).isActive = true
-        button.centerYAnchor.constraint(equalTo: parent.centerYAnchor).isActive = true
     }
 
 }
